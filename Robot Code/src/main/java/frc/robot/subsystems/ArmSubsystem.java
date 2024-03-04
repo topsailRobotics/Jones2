@@ -18,6 +18,12 @@ public class ArmSubsystem extends SubsystemBase {
 
   /** Creates a new IntakeSubsystem. */
   public ArmSubsystem() {
+    // Sets the error tolerance to 5, and the error derivative tolerance to 10 per second
+    pid.setTolerance(5, 10);
+
+    // Returns true if the error is less than 5 units, and the
+    // error derivative is less than 10 units
+    pid.atSetpoint();
   }
 
   @Override
