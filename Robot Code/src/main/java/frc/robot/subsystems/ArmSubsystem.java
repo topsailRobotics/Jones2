@@ -24,6 +24,10 @@ public class ArmSubsystem extends SubsystemBase {
     // Returns true if the error is less than 5 units, and the
     // error derivative is less than 10 units
     pid.atSetpoint();
+    
+    // The integral gain term will never add or subtract more than 0.5 from
+    // the total loop output
+    pid.setIntegratorRange(-0.5, 0.5);
   }
 
   @Override
