@@ -28,6 +28,9 @@ public class ArmSubsystem extends SubsystemBase {
     // The integral gain term will never add or subtract more than 0.5 from
     // the total loop output
     pid.setIntegratorRange(-0.5, 0.5);
+
+    // Enables continuous input on a range from -180 to 180
+    pid.enableContinuousInput(-180, 180);
   }
 
   @Override
