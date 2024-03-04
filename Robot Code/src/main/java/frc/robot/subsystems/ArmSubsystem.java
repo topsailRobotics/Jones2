@@ -11,7 +11,7 @@ import com.revrobotics.CANSparkMax;
 public class ArmSubsystem extends SubsystemBase {
 
   //set up shooter motors
-  private final CANSparkMax m_bottomshooter = new CANSparkMax(, MotorType.kBrushless);
+  private final CANSparkMax m_innerarm = new CANSparkMax(ArmConstant.CanId61, MotorType.kBrushless);
   private final CANSparkMax m_topshooter = new CANSparkMax(, MotorType.kBrushless);
 
   /** Creates a new IntakeSubsystem. */
