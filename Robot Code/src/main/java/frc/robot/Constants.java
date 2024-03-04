@@ -148,6 +148,6 @@ public final class Constants {
   }
   public static final class ArmConstants {
     public static final int kInnerArmCanId = 61;
-    public static final int kOutterArmCanId = 62;
+    public static final int kOuterArmCanId = 62;
   }
 }
