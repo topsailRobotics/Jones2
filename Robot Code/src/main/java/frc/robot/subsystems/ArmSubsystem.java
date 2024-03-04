@@ -24,5 +24,8 @@ public class ArmSubsystem extends SubsystemBase {
   public void periodic() {
     // This method will be called once per scheduler run
   }
-  
+  public void update() {
+  m_innerarm.set(pid.calculate(encoder.getDistance(), setpoint));
+  m_outerarm.set(pid.calculate(encoder.getDistance(), setpoint));
+  }
 }
