@@ -19,29 +19,33 @@ public class ArmSubsystem extends SubsystemBase {
   /** Creates a new IntakeSubsystem. */
   public ArmSubsystem() {
     // Sets the error tolerance to 5, and the error derivative tolerance to 10 per second
-    pid.setTolerance(5, 10);
+    turnController.setTolerance(5, 10);
 
     // Returns true if the error is less than 5 units, and the
     // error derivative is less than 10 units
-    pid.atSetpoint();
+    turnController.atSetpoint();
     
     // The integral gain term will never add or subtract more than 0.5 from
     // the total loop output
-    pid.setIntegratorRange(-0.5, 0.5);
+    turnController.setIntegratorRange(-0.5, 0.5);
 
     // Enables continuous input on a range from -180 to 180
-    pid.enableContinuousInput(-180, 180);
+    turnController.enableContinuousInput(-180, 180);
 
     // Clamps the controller output to between -0.5 and 0.5
-    MathUtil.clamp(pid.calculate(encoder.getDistance(), setpoint), -0.5, 0.5);
+    MathUtil.clamp(turnController.calculate(encoder.getDistance(), setpoint), -0.5, 0.5);
   }
 
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
   }
-  public void update() {
-  m_innerarm.set(pid.calculate(encoder.getDistance(), setpoint));
-  m_outerarm.set(pid.calculate(encoder.getDistance(), setpoint));
+  public void rotateDegrees(double angle) {
+  m_innerarm.reset();
+  m_outerarm.reset();
+  turnController.reset();
+  turnController.setPID(kP,kI,kD);
+  m_innerarm.set(turnController.calculate(encoder.getDistance(), setpoint));
+  m_outerarm.set(turnController.calculate(encoder.getDistance(), setpoint));
   }
 }
