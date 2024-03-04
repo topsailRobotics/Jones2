@@ -31,6 +31,9 @@ public class ArmSubsystem extends SubsystemBase {
 
     // Enables continuous input on a range from -180 to 180
     pid.enableContinuousInput(-180, 180);
+
+    // Clamps the controller output to between -0.5 and 0.5
+    MathUtil.clamp(pid.calculate(encoder.getDistance(), setpoint), -0.5, 0.5);
   }
 
   @Override
