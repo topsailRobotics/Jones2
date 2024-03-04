@@ -146,5 +146,8 @@ public final class Constants {
     public static final int kBottomShooterCanId = 53;
     public static final int kTopShooterCanId = 54;
   }
-
+  public static final class ArmConstants {
+    public static final int kInnerArmCanId = 61;
+    public static final int kOutterArmCanId = 62;
+  }
 }
