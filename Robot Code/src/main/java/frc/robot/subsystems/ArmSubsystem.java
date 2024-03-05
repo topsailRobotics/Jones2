@@ -10,7 +10,7 @@ import com.revrobotics.CANSparkMax;
 
 public class ArmSubsystem extends SubsystemBase {
   // Creates a PIDController with gains kP, kI, and kD
-  PIDController turnController = new PIDController(kP, kI, kD);
+  private PIDController turnController = new PIDController(kP, kI, kD);
   
   //set up shooter motors
   private final CANSparkMax m_innerarm = new CANSparkMax(ArmConstants.kInnerArmCanId, MotorType.kBrushless);
