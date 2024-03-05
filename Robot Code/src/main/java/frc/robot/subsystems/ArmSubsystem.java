@@ -103,7 +103,7 @@ public class ArmSubsystem extends SubsystemBase {
   //m_innerarm.set(turnController.calculate(encoder.getDistance(), setpoint));
   //m_outerarm.set(turnController.calculate(encoder.getDistance(), setpoint));
   //}
-  public void rotateDegrees(double angle) {
+  public void rotateDegrees() {
    // read PID coefficients from SmartDashboard
     double p = SmartDashboard.getNumber("P Gain", 0);
     double i = SmartDashboard.getNumber("I Gain", 0);
