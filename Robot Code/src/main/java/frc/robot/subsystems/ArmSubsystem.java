@@ -92,9 +92,9 @@ public class ArmSubsystem extends SubsystemBase {
   }
 
   @Override
-  public void periodic() {
+  //public void periodic() {
     // This method will be called once per scheduler run
-  }
+  //}
   //public void rotateDegrees(double angle) {
   //m_innerarm.reset();
   //m_outerarm.reset();
