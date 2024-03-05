@@ -16,6 +16,7 @@ public class ArmSubsystem extends SubsystemBase {
   private final CANSparkMax m_innerarm = new CANSparkMax(ArmConstants.kInnerArmCanId, MotorType.kBrushless);
   private final CANSparkMax m_outerarm = new CANSparkMax(ArmConstants.kOuterArmCanId, MotorType.kBrushless);
 
+  public CANEncoder getEncoder(
   /** Creates a new IntakeSubsystem. */
   public ArmSubsystem() {
     // Sets the error tolerance to 5, and the error derivative tolerance to 10 per second
