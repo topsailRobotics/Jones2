@@ -20,9 +20,9 @@ public class ArmSubsystem extends SubsystemBase {
   
   private PIDController pid;
   
-  // need code for an encoder/digital input
-  private SparkAbsoluteEncoder absEncoder = m_innerarm.getAbsoluteEncoder(SparkAbsoluteEncoder.Type.kDutyCycle);
-    private double targetPosition = ArmConstants.defaultPosition;
+  private final RelativeEncoder m_innerarmencoder = m_innerarm.getEncoder();
+  
+  private double targetPosition = ArmConstants.defaultPosition;
 
  /** The shooter subsystem for the robot. */
  public ArmSubsystem() {
@@ -45,7 +45,7 @@ public void moveArm(double power) {
 
 
 public double getPosition() {
-  return absEncoder.getPosition();
+  return m_innerarmencoder.getPosition();
 }
 
 public void setTargetPosition(double position){
