@@ -28,6 +28,8 @@ public class ArmSubsystem extends SubsystemBase {
  public ArmSubsystem() {
   pid = new PIDController(ArmConstants.kP, ArmConstants.kI,ArmConstants.kD);
   pid.enableContinuousInput(0, 1);
+  m_innerarm.restoreFactoryDefaults();
+   
   setTargetPosition(targetPosition);
   setSoftLimit();
 }
