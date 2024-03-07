@@ -31,6 +31,8 @@ private final RelativeEncoder m_innerarmencoder = m_innerarm.getEncoder();
   m_innerarm.restoreFactoryDefaults();
   setTargetPosition(targetPosition);
   setSoftLimit();
+  m_innerarm.setVoltage(4);
+  m_outerarm.setVoltage(4);
 }
 public void setSoftLimit(){
   m_innerarm.enableSoftLimit(SoftLimitDirection.kForward, true);
