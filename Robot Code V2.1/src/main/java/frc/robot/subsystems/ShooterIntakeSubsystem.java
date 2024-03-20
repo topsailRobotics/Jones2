@@ -5,6 +5,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.revrobotics.CANSparkLowLevel.MotorType;
 import com.revrobotics.CANSparkMax;
@@ -30,27 +31,22 @@ public void stopShooterIntake() {
     m_shooterintake.setVoltage(0);
   }
 
-  public void runShooterIntake() {
-    m_shooterintake.setVoltage(4);
+  public Command runShooterIntake() {
+    return this.runOnce(() -> m_shooterintake.setVoltage(4));
   }
-  public void runShooterIntakeTest() {
-    m_shooterintake.setVoltage(4);
-  }
-  public void runShooterIntakerReverse() {
+  public void runShooterIntakeReverse() {
     m_shooterintake.setVoltage(-2);
   }
 public void runShooterIntakeIfSensor() {
     try (DigitalInput m_sensor = new DigitalInput(0)) {
       if (m_sensor.get()){
-        m_shooterintake.setInverted(true);
           m_shooterintake.setVoltage(4);
       } else {
        m_shooterintake.setVoltage(0);
         int timer = 0;
         timer++;
         if (timer<=300) {
-          m_shooterintake.setInverted(false);
-          m_shooterintake.setVoltage(1);
+          m_shooterintake.setVoltage(-2);
         } 
       }
     }

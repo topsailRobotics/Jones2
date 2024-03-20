@@ -4,6 +4,8 @@
 
 package frc.robot;
 
+import com.pathplanner.lib.auto.NamedCommands;
+
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.Constants.OIConstants;
@@ -12,9 +14,7 @@ import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.subsystems.ShooterIntakeSubsystem;
 import frc.robot.subsystems.ShooterSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.RunCommand;
-import edu.wpi.first.wpilibj2.command.WaitCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
 /*
@@ -39,8 +39,11 @@ public class RobotContainer {
   /**
    * The container for the robot. Contains subsystems, OI devices, and commands.
    */
+  
   public RobotContainer() {
     // Register Named Commands
+    NamedCommands.registerCommand("shootBump", m_robotShooterIntake.runShooterIntake());
+    
     //    NamedCommands.registerCommand("runIntake", MoveArmToDefault());
     //    NamedCommands.registerCommand("runShooter", ShooterSubsystem.runShooter());
     // Configure the button bindings
@@ -91,12 +94,12 @@ public class RobotContainer {
 
     new JoystickButton(m_driverController, XboxController.Button.kX.value)
             .toggleOnTrue(new RunCommand(
-                () -> m_robotIntake.runIntakeIfSensor(),
+                () -> m_robotIntake.runIntake(),
                 m_robotIntake));
     
     new JoystickButton(m_driverController, XboxController.Button.kX.value)
             .toggleOnTrue(new RunCommand(
-                () -> m_robotShooterIntake.runShooterIntakeIfSensor(),
+                () -> m_robotShooterIntake.runShooterIntake(),
                 m_robotShooterIntake));     
     
     new JoystickButton(m_driverController, XboxController.Button.kY.value)
@@ -115,7 +118,9 @@ public class RobotContainer {
             
 
     new JoystickButton(m_driverController, XboxController.Button.kRightBumper.value)
-;
+    .toggleOnTrue(new RunCommand(
+        () -> m_robotShooterIntake.runShooterIntakeReverse(),
+        m_robotShooterIntake));  
   }
 
 /**
