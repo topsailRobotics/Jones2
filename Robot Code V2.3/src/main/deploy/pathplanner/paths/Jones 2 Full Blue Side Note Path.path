@@ -1,0 +1,362 @@
+{
+  "version": 1.0,
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 0.5090027081462617,
+        "y": 4.104648209296419
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 0.6090027081462617,
+        "y": 4.104648209296419
+      },
+      "isLocked": true,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 2.65,
+        "y": 4.104648209296419
+      },
+      "prevControl": {
+        "x": 2.55,
+        "y": 4.104648209296419
+      },
+      "nextControl": {
+        "x": 2.75,
+        "y": 4.104648209296419
+      },
+      "isLocked": true,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 0.69689153462814,
+        "y": 4.350348982388106
+      },
+      "prevControl": {
+        "x": 0.6626895202955749,
+        "y": 4.444318244466692
+      },
+      "nextControl": {
+        "x": 1.209921749616643,
+        "y": 2.940810051209244
+      },
+      "isLocked": true,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 2.908198492453323,
+        "y": 5.549946874541637
+      },
+      "prevControl": {
+        "x": 1.386294919931445,
+        "y": 3.5665635238135946
+      },
+      "nextControl": {
+        "x": 3.2125792069576975,
+        "y": 5.9466235446872435
+      },
+      "isLocked": true,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 1.3906348939458446,
+        "y": 5.549946874541637
+      },
+      "prevControl": {
+        "x": 1.3906348939458446,
+        "y": 6.049946874541637
+      },
+      "nextControl": {
+        "x": 1.3906348939458446,
+        "y": 5.449946874541637
+      },
+      "isLocked": true,
+      "linkedName": "Front Speaker"
+    },
+    {
+      "anchor": {
+        "x": 2.908198492453323,
+        "y": 6.995245539786855
+      },
+      "prevControl": {
+        "x": 2.837487814334666,
+        "y": 6.924534861668198
+      },
+      "nextControl": {
+        "x": 3.3607468324127137,
+        "y": 7.4477938797462455
+      },
+      "isLocked": true,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 1.3906348939458446,
+        "y": 5.549946874541637
+      },
+      "prevControl": {
+        "x": 1.461345572064504,
+        "y": 5.620657552660296
+      },
+      "nextControl": {
+        "x": 1.3199242158271896,
+        "y": 5.479236196422982
+      },
+      "isLocked": true,
+      "linkedName": "Front Speaker"
+    },
+    {
+      "anchor": {
+        "x": 2.908198492453323,
+        "y": 5.549946874541637
+      },
+      "prevControl": {
+        "x": 2.808198492453323,
+        "y": 5.549946874541637
+      },
+      "nextControl": null,
+      "isLocked": true,
+      "linkedName": null
+    }
+  ],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 1.0,
+      "rotationDegrees": 0.0,
+      "rotateFast": false
+    },
+    {
+      "waypointRelativePos": 2.0,
+      "rotationDegrees": -60.0,
+      "rotateFast": false
+    },
+    {
+      "waypointRelativePos": 2.75,
+      "rotationDegrees": 52.55,
+      "rotateFast": true
+    },
+    {
+      "waypointRelativePos": 3.0,
+      "rotationDegrees": 52.55,
+      "rotateFast": false
+    },
+    {
+      "waypointRelativePos": 3.75,
+      "rotationDegrees": 0.0,
+      "rotateFast": false
+    },
+    {
+      "waypointRelativePos": 4.0,
+      "rotationDegrees": 0.0,
+      "rotateFast": false
+    },
+    {
+      "waypointRelativePos": 4.75,
+      "rotationDegrees": 45.0,
+      "rotateFast": true
+    },
+    {
+      "waypointRelativePos": 5.0,
+      "rotationDegrees": 45.0,
+      "rotateFast": false
+    },
+    {
+      "waypointRelativePos": 5.75,
+      "rotationDegrees": 0.0,
+      "rotateFast": false
+    },
+    {
+      "waypointRelativePos": 6.0,
+      "rotationDegrees": 0.0,
+      "rotateFast": false
+    }
+  ],
+  "constraintZones": [],
+  "eventMarkers": [
+    {
+      "name": "Intake Pickup First Note",
+      "waypointRelativePos": 0.7000000000000001,
+      "command": {
+        "type": "sequential",
+        "data": {
+          "commands": [
+            {
+              "type": "named",
+              "data": {
+                "name": "runIntake"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Shoot First Note",
+      "waypointRelativePos": 2.0,
+      "command": {
+        "type": "sequential",
+        "data": {
+          "commands": [
+            {
+              "type": "named",
+              "data": {
+                "name": "runFastShooter"
+              }
+            },
+            {
+              "type": "wait",
+              "data": {
+                "waitTime": 1.0
+              }
+            },
+            {
+              "type": "named",
+              "data": {
+                "name": "runShooterIntake"
+              }
+            },
+            {
+              "type": "wait",
+              "data": {
+                "waitTime": 0.25
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Intake Pickup Second Note",
+      "waypointRelativePos": 0.75,
+      "command": {
+        "type": "sequential",
+        "data": {
+          "commands": [
+            {
+              "type": "named",
+              "data": {
+                "name": "runIntake"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Shoot Second Note",
+      "waypointRelativePos": 4.0,
+      "command": {
+        "type": "sequential",
+        "data": {
+          "commands": [
+            {
+              "type": "named",
+              "data": {
+                "name": "runFastShooter"
+              }
+            },
+            {
+              "type": "wait",
+              "data": {
+                "waitTime": 1.0
+              }
+            },
+            {
+              "type": "named",
+              "data": {
+                "name": "runShooterIntake"
+              }
+            },
+            {
+              "type": "wait",
+              "data": {
+                "waitTime": 0.25
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Intake Pickup Third Note",
+      "waypointRelativePos": 4.75,
+      "command": {
+        "type": "parallel",
+        "data": {
+          "commands": [
+            {
+              "type": "named",
+              "data": {
+                "name": "runIntake"
+              }
+            },
+            {
+              "type": "named",
+              "data": {
+                "name": "runShooterIntake"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Shoot Third Note",
+      "waypointRelativePos": 6.0,
+      "command": {
+        "type": "sequential",
+        "data": {
+          "commands": [
+            {
+              "type": "named",
+              "data": {
+                "name": "runFastShooter"
+              }
+            },
+            {
+              "type": "wait",
+              "data": {
+                "waitTime": 1.0
+              }
+            },
+            {
+              "type": "named",
+              "data": {
+                "name": "runShooterIntake"
+              }
+            },
+            {
+              "type": "wait",
+              "data": {
+                "waitTime": 0.25
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "globalConstraints": {
+    "maxVelocity": 4.8,
+    "maxAcceleration": 4.8,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0
+  },
+  "goalEndState": {
+    "velocity": 0.0,
+    "rotation": 0,
+    "rotateFast": false
+  },
+  "reversed": false,
+  "folder": null,
+  "previewStartingState": {
+    "rotation": 0,
+    "velocity": 0
+  },
+  "useDefaultConstraints": false
+}
